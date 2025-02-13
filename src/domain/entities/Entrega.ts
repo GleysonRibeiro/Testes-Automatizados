@@ -1,19 +1,20 @@
-import { Estudante } from './Estudante';
-import { Trabalho } from './Trabalho';
+import { IEntrega } from '../interfaces/IEntrega';
+import { IEstudante } from '../interfaces/IEstudante';
+import { ITrabalho } from '../interfaces/ITrabalho';
 
-export class Entrega {
+export class Entrega implements IEntrega {
     private id: number;
     private dataEntrega: Date;
     private nota: number;
-    private aluno: Estudante;
-    private trabalho: Trabalho;
+    private aluno: IEstudante;
+    private trabalho: ITrabalho;
 
     constructor(
         id: number,
         dataEntrega: Date,
         nota: number,
-        aluno: Estudante,
-        trabalho: Trabalho
+        aluno: IEstudante,
+        trabalho: ITrabalho
     ) {
         this.id = id;
         this.dataEntrega = dataEntrega;
@@ -46,19 +47,19 @@ export class Entrega {
         }
     }
 
-    getAluno(): Estudante {
+    getAluno(): IEstudante {
         return this.aluno;
     }
 
-    setAluno(novoAluno: Estudante): void {
+    setAluno(novoAluno: IEstudante): void {
         this.aluno = novoAluno;
     }
 
-    getTrabalho(): Trabalho {
+    getTrabalho(): ITrabalho {
         return this.trabalho;
     }
 
-    setTrabalho(novoTrabalho: Trabalho): void {
+    setTrabalho(novoTrabalho: ITrabalho): void {
         this.trabalho = novoTrabalho;
     }
 

@@ -1,6 +1,9 @@
-import { Pessoa } from './Pessoa';
+import { IEstudante } from '../interfaces/IEstudante';
 
-export class Estudante extends Pessoa {
+export class Estudante implements IEstudante {
+    private id: number;
+    private nome: string;
+    private email: string;
     private matricula: string;
     private curso: string;
     private periodo: number;
@@ -13,34 +16,36 @@ export class Estudante extends Pessoa {
         curso: string, 
         periodo: number
     ) {
-        super(id, nome, email);
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
         this.matricula = matricula;
         this.curso = curso;
         this.periodo = periodo;
+    }
+
+    getId(): number {
+        return this.id;
+    }
+
+    getNome(): string {
+        return this.nome;
+    }
+
+    getEmail(): string {
+        return this.email;
     }
 
     getMatricula(): string {
         return this.matricula;
     }
 
-    setMatricula(novaMatricula: string): void {
-        this.matricula = novaMatricula;
-    }
-
     getCurso(): string {
         return this.curso;
     }
 
-    setCurso(novoCurso: string): void {
-        this.curso = novoCurso;
-    }
-
     getPeriodo(): number {
         return this.periodo;
-    }
-
-    setPeriodo(novoPeriodo: number): void {
-        this.periodo = novoPeriodo;
     }
 
     getTipo(): string {

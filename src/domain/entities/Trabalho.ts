@@ -1,4 +1,6 @@
-export class Trabalho {
+import { ITrabalho } from '../interfaces/ITrabalho';
+
+export class Trabalho implements ITrabalho {
     private id: number;
     private titulo: string;
     private descricao: string;

@@ -1,16 +1,18 @@
-export interface Trabalho {
-    id: number;
-    titulo: string;
-    disciplina: string;
-    dataEntrega: Date;
-}
+// src/domain/usecases/usecase-trabalho.ts
+import { IUseCase } from '../../contracts/iusecase';
+import { ITrabalho } from '../interfaces/ITrabalho';
 
 export interface IEntradaUseCaseTrabalho {
-    idProfessor: number;
+    id: number;
 }
 
 export interface ISaidaUseCaseTrabalho {
-    trabalhos: Trabalho[];
+    trabalho: ITrabalho | null;
 }
 
-//export class UseCaseTrabalho implements IUseCase<ent, sai> {......
+export class UseCaseTrabalho implements IUseCase<IEntradaUseCaseTrabalho, ISaidaUseCaseTrabalho> {
+    async perform(entrada: IEntradaUseCaseTrabalho): Promise<ISaidaUseCaseTrabalho> {
+        console.log(`Buscando trabalho com ID: ${entrada.id}`);
+        return { trabalho: null };
+    }
+}
